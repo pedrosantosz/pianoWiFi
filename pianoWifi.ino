@@ -1,8 +1,8 @@
 #include <WiFi.h>  //inclui biblioteca WiFi
 #define buzzer 14  //pino para controle do buzzer
 
-const char *ssid = "OsirMax_Patricia";          //atribuir nome da rede WiFi
-const char *password = "0987612346";  //atribuir senha da rede
+const char *ssid = "nome-da-rede";          //atribuir nome da rede WiFi
+const char *password = "senha";  //atribuir senha da rede
 
 WiFiServer server(80);  //define a porta que o servidor irá utilizar
                         //(normalmente utiliza-se a porta padrão 80)
