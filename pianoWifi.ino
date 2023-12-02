@@ -57,23 +57,31 @@ void piano_wifi() {
             client.println("Content-type:text/html");
             client.println();
 
+            // Adiciona a função JavaScript para fazer solicitações ao servidor
+            client.print("<script>");
+            client.print("function playNote(note) {");
+            client.print("  fetch('/' + note);");
+            client.print("}");
+            client.print("</script>");
+
             // estilo dos botões
-            client.print("<head> <style> div {text-align: center;} button {width: 100px; height: 500px;} #jonas {width: 50px; height: 320px ;background-color: black; position: absolute; margin-left: -25px;} </style> </head>");
+            client.print("<head> <style> div {text-align: center;} button {width: 100px; height: 500px;} #jonas {width: 50px; height: 320px ;background-color: black; position: absolute; margin-left: -25px;} </style>");
+            client.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\"></head>");
 
             // body da oitava do piano de C4 a B4
-            client.print("<body> <div>");
-            client.print("<a href=\"/C4\"> <button></button> </a>");
-            client.print("<a href=\"/CS4\"> <button id=\"jonas\"></button> </a>");
-            client.print("<a href=\"/D4\"> <button></button> </a>");
-            client.print("<a href=\"/DS4\"> <button id=\"jonas\"></button> </a>");
-            client.print("<a href=\"/E4\"> <button></button> </a>");
-            client.print("<a href=\"/F4\"> <button></button> </a>");
-            client.print("<a href=\"/FS4\"> <button id=\"jonas\"></button> </a>");
-            client.print("<a href=\"/G4\"> <button></button> </a>");
-            client.print("<a href=\"/GS4\"> <button id=\"jonas\"></button> </a>");
-            client.print("<a href=\"/A4\"> <button></button> </a>");
-            client.print("<a href=\"/AS4\"> <button id=\"jonas\"></button> </a>");
-            client.print("<a href=\"/B4\"> <button></button> </a>");
+            client.print("<body><div>");
+            client.print("<button onclick=\"playNote('C4')\"></button>");
+            client.print("<button id=\"jonas\" onclick=\"playNote('CS4')\"></button>");
+            client.print("<button onclick=\"playNote('D4')\"></button>");
+            client.print("<button id=\"jonas\" onclick=\"playNote('DS4')\"></button>");
+            client.print("<button onclick=\"playNote('E4')\"></button>");
+            client.print("<button onclick=\"playNote('F4')\"></button>");
+            client.print("<button id=\"jonas\" onclick=\"playNote('FS4')\"></button>");
+            client.print("<button onclick=\"playNote('G4')\"></button>");
+            client.print("<button id=\"jonas\" onclick=\"playNote('GS4')\"></button>");
+            client.print("<button onclick=\"playNote('A4')\"></button>");
+            client.print("<button id=\"jonas\" onclick=\"playNote('AS4')\"></button>");
+            client.print("<button onclick=\"playNote('B4')\"></button>");
             client.print("</div></body>");
 
             client.println();
